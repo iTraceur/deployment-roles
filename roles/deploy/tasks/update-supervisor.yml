@@ -1,0 +1,12 @@
+---
+- name: ANSISTRANO | Copy | Copy supervisor config to /etc/supervisord.d/
+  copy:
+    src: "{{ ansistrano_config_path.stdout }}/{{ ansistrano_supervisor_conf }}"
+    dest: "/etc/supervisord.d/{{ ansistrano_supervisor_conf }}"
+  when: ansistrano_supervisor_conf is definded
+
+- name: Restart service supervisord
+  service:
+    name: supervisord
+    state: restarted
+  when: ansistrano_auto_restart is definded and ansistrano_auto_restart|bool

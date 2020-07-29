@@ -1,0 +1,7 @@
+---
+- name: ANSISTRANO | Get hooks path
+  command: echo "{{ ansistrano_hooks_path }}/{{ ansistrano_rollback_release_version }}"
+  register: ansistrano_hook_path
+
+# Update hook deployment step
+- include_tasks: "update-hook/download_unarchive.yml"

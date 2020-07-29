@@ -1,0 +1,5 @@
+---
+- name: ANSISTRANO | Ensure deployment base path exists
+  file:
+    state: directory
+    path: "{{ ansistrano_deploy_to }}"

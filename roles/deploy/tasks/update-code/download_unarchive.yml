@@ -1,0 +1,13 @@
+---
+- name: ANSISTRANO | download_unarchive | Create release folder
+  file:
+    state: directory
+    path: "{{ ansistrano_release_path.stdout }}"
+
+- name: ANSISTRANO | download_unarchive | Set code archived file variable
+  set_fact:
+    ansistrano_archived_file: "{{ ansistrano_release_path.stdout }}/{{ ansistrano_get_url | basename }}"
+
+- include_tasks: download.yml
+
+- include_tasks: unarchive.yml

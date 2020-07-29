@@ -1,0 +1,22 @@
+---
+- include_tasks: initial.yml
+
+- include_tasks: update-hook.yml
+
+- include_tasks: register-hook-file.yml
+
+- include_tasks: "{{ ansistrano_rollback_before_setup_tasks_file | default('empty.yml') }}"
+- include_tasks: setup.yml
+- include_tasks: "{{ ansistrano_rollback_after_setup_tasks_file | default('empty.yml') }}"
+
+- include_tasks: "{{ ansistrano_rollback_before_symlink_tasks_file | default('empty.yml') }}"
+- include_tasks: symlink.yml
+- include_tasks: "{{ ansistrano_rollback_after_symlink_tasks_file | default('empty.yml') }}"
+
+- include_tasks: "{{ ansistrano_rollback_before_cleanup_tasks_file | default('empty.yml') }}"
+- include_tasks: cleanup.yml
+- include_tasks: "{{ ansistrano_rollback_after_cleanup_tasks_file | default('empty.yml') }}"
+
+- include_tasks: update-supervisor.yml
+
+- include_tasks: anon-stats.yml

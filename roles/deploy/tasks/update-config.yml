@@ -1,0 +1,7 @@
+---
+- name: ANSISTRANO | Get config path
+  command: echo "{{ ansistrano_release_path.stdout }}/conf.d"
+  register: ansistrano_config_path
+
+# Update config deployment step
+- include_tasks: "update-config/download_unarchive.yml"

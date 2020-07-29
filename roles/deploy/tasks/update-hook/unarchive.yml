@@ -1,0 +1,30 @@
+---
+- name: ANSISTRANO | Unarchive | Unarchive hook
+  unarchive:
+    copy: no
+    src: "{{ ansistrano_hook_archived_file }}"
+    dest: "{{ ansistrano_hook_path.stdout }}"
+  when: ansistrano_unarchive_owner == "default" and ansistrano_unarchive_group == "default"
+
+- name: ANSISTRANO | Unarchive | Unarchive hook
+  fail:
+    msg: "must set ansistrano_unarchive_group and ansistrano_unarchive_owner"
+  when: >
+    (ansistrano_unarchive_owner == "default" and ansistrano_unarchive_group != "default") or
+    (ansistrano_unarchive_owner != "default" and ansistrano_unarchive_group == "default")
+
+- name: ANSISTRANO | Unarchive | Unarchive hook with owner and group
+  unarchive:
+    copy: no
+    src: "{{ ansistrano_hook_archived_file }}"
+    dest: "{{ ansistrano_hook_path.stdout }}"
+    owner: "{{ ansistrano_unarchive_owner }}"
+    group: "{{ ansistrano_unarchive_group }}"
+  when: >
+    ansistrano_unarchive_owner != "default" and
+    ansistrano_unarchive_group != "default"
+
+- name: ANSISTRANO | Unarchive | Delete hook archived file
+  file:
+    path: "{{ ansistrano_hook_archived_file }}"
+    state: absent

@@ -1,0 +1,4 @@
+---
+- name: ANSISTRANO | Get release path
+  command: echo "{{ ansistrano_releases_path.stdout }}/{{ ansistrano_rollback_release_version }}"
+  register: ansistrano_release_path

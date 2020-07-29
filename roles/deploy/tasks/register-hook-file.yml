@@ -1,0 +1,85 @@
+---
+# setup
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/before-setup-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set before setup tasks file
+  set_fact:
+    ansistrano_before_setup_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/before-setup-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/after-setup-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set after setup tasks file
+  set_fact:
+    ansistrano_after_setup_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/after-setup-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+# update code
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/before-update-code-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set before update code tasks file
+  set_fact:
+    ansistrano_before_update_code_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/before-update-code-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/after-update-code-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set after update code tasks file
+  set_fact:
+    ansistrano_after_update_code_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/after-update-code-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+# symlink shared
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/before-symlink-shared-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set before symlink shared tasks file
+  set_fact:
+    ansistrano_before_symlink_shared_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/before-symlink-shared-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/after-symlink-shared-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set after symlink shared tasks file
+  set_fact:
+    ansistrano_after_symlink_shared_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/after-symlink-shared-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+# symlink
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/before-symlink-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set before symlink tasks file
+  set_fact:
+    ansistrano_before_symlink_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/before-symlink-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/after-symlink-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set after symlink tasks file
+  set_fact:
+    ansistrano_after_symlink_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/after-symlink-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+# symlink cleanup
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/before-cleanup-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set before cleanup tasks file
+  set_fact:
+    ansistrano_before_cleanup_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/before-cleanup-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists
+
+- stat:
+    path: "{{ ansistrano_hook_path.stdout }}/deploy/after-cleanup-tasks.yml"
+  register: st
+- name: ANSISTRANO | Set after cleanup tasks file
+  set_fact:
+    ansistrano_after_cleanup_tasks_file: "{{ ansistrano_hook_path.stdout }}/deploy/after-cleanup-tasks.yml"
+  when: st.stat.exists is defined and st.stat.exists

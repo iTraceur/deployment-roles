@@ -1,0 +1,5 @@
+---
+- name: Rollback root
+  hosts: all
+  roles:
+    - { role: rollback }
