@@ -18,5 +18,3 @@
 - include_tasks: "{{ ansistrano_rollback_after_cleanup_tasks_file | default('empty.yml') }}"
 
 - include_tasks: update-supervisor.yml
-
-- include_tasks: anon-stats.yml
