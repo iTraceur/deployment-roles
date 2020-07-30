@@ -1,5 +1,5 @@
 ---
-- name: Rollback root
+- name: Deployment rollback
   hosts: all
   roles:
-    - { role: rollback }
+    - rollback

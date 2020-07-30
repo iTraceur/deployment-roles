@@ -1,7 +1,7 @@
 ---
-- name: Deploy root
+- name: Deployment Deploy
   hosts: all
   vars:
-    ansistrano_keep_releases: 3
+    ansistrano_keep_releases: 7
   roles:
-    - { role: deploy }
+    - deploy
