@@ -5,7 +5,7 @@
     path: "{{ ansistrano_hooks_path }}"
 
 - name: ANSISTRANO | Get hooks path
-  command: echo "{{ ansistrano_hooks_path }}/{{ ansistrano_release_version }}"
+  command: echo "{{ ansistrano_hooks_path }}/{{ ansistrano_release_version }}/deploy"
   register: ansistrano_hook_path
 
 # Update hook deployment step

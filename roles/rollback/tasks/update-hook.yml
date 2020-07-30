@@ -1,6 +1,6 @@
 ---
 - name: ANSISTRANO | Get hooks path
-  command: echo "{{ ansistrano_hooks_path }}/{{ ansistrano_rollback_release_version }}"
+  command: echo "{{ ansistrano_hooks_path }}/{{ ansistrano_rollback_release_version }}/rollback"
   register: ansistrano_hook_path
 
 # Update hook deployment step
