@@ -5,4 +5,3 @@
     dest: "{{ ansistrano_hook_archived_file }}"
     force_basic_auth: "{{ ansistrano_download_force_basic_auth | default(omit) }}"
     headers: "{{ ansistrano_download_headers | default(omit) }}"
-  when: ansistrano_hook_get_url is defined

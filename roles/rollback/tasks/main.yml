@@ -2,8 +2,10 @@
 - include_tasks: initial.yml
 
 - include_tasks: update-hook.yml
+  when: ansistrano_hook_get_url is defined
 
 - include_tasks: register-hook-file.yml
+  when: ansistrano_hook_get_url is defined
 
 - include_tasks: "{{ ansistrano_rollback_before_setup_tasks_file | default('empty.yml') }}"
 - include_tasks: setup.yml
