@@ -1,6 +1,7 @@
 ---
 - name: ANSISTRANO | Copy | Copy supervisor config to /etc/supervisord.d/
   copy:
+    remote_src: true
     src: "{{ ansistrano_config_path.stdout }}/{{ ansistrano_supervisor_conf }}"
     dest: "/etc/supervisord.d/{{ ansistrano_supervisor_conf }}"
   when: ansistrano_supervisor_conf is defined
