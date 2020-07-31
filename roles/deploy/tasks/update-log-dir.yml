@@ -10,4 +10,4 @@
     state: directory
     path: "{{ item }}"
   with_items: "{{ ansistrano_host_log_dir_list }}"
-  when: ansistrano_log_dir_list is defined
+  when: ansistrano_host_log_dir_list is defined
