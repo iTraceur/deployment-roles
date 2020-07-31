@@ -6,7 +6,7 @@
 
 - name: ANSISTRANO | download_unarchive | Set config archived file variable
   set_fact:
-    ansistrano_config_archived_file: "{{ ansistrano_config_path.stdout }}/{{ ansistrano_config_get_url | basename }}"
+    ansistrano_config_archived_file: "{{ ansistrano_config_path.stdout }}/configs.tar.gz"
 
 - include_tasks: download.yml
 

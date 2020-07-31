@@ -6,7 +6,7 @@
 
 - name: ANSISTRANO | download_unarchive | Set hook archived file variable
   set_fact:
-    ansistrano_hook_archived_file: "{{ ansistrano_hook_path.stdout }}/{{ ansistrano_hook_get_url | basename }}"
+    ansistrano_hook_archived_file: "{{ ansistrano_hook_path.stdout }}/hooks.tar.gz"
 
 - include_tasks: download.yml
 
