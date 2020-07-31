@@ -1,0 +1,13 @@
+---
+- name: ANSISTRANO | Get log dir list
+  set_fact:
+    ansistrano_host_log_dir_list: "{{ item.value }}"
+  with_dict: "{{ ansistrano_log_dir }}"
+  when: ansistrano_log_dir is defined and item.key == ansible_default_ipv4.address
+
+- name: ANSISTRANO | Make log dirs
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items: "{{ ansistrano_host_log_dir_list }}"
+  when: ansistrano_log_dir_list is defined

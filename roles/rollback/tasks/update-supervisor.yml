@@ -3,4 +3,5 @@
   service:
     name: supervisord
     state: restarted
+  ignore_errors: yes
   when: ansistrano_auto_restart is defined and ansistrano_auto_restart|bool

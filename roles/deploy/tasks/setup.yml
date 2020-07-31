@@ -25,3 +25,6 @@
     path: "{{ ansistrano_shared_path }}/{{ item | dirname }}"
   with_items: "{{ ansistrano_shared_files }}"
   when: ansistrano_ensure_basedirs_shared_files_exist|bool
+
+# Ensure log path exists step
+- include_tasks: "update-log-dir.yml"
