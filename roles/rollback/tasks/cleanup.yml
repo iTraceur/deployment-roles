@@ -2,11 +2,11 @@
 - name: ANSISTRANO | Remove rolled back code version
   file:
     state: absent
-    path: "{{ ansistrano_releases_path.stdout }}/{{ ansistrano_current_release_version.stdout }}"
+    path: "{{ ansistrano_releases_path.stdout }}/{{ ansistrano_current_release_version }}"
   when: ansistrano_remove_rolled_back
 
 - name: ANSISTRANO | Remove rolled back hook version
   file:
     state: absent
-    path: "{{ ansistrano_hooks_path }}/{{ ansistrano_current_release_version.stdout }}"
+    path: "{{ ansistrano_hooks_path }}/{{ ansistrano_current_release_version }}"
   when: ansistrano_remove_rolled_back

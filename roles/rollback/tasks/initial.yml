@@ -12,9 +12,15 @@
     msg: "Could not roll back the code because there is no prior release"
   when: ansistrano_versions_count.stdout|int <= 1
 
-- name: ANSISTRANO | Get current release version
+- name: ANSISTRANO | Get latest release version
   shell: echo `ls -1t {{ ansistrano_releases_path.stdout }} | head -n 1`
-  register: ansistrano_current_release_version
+  register: ansistrano_latest_release_version
+  when: ansistrano_current_release_version is not defined
+
+- name: ANSISTRANO | Set current release version
+  set_fact:
+    ansistrano_current_release_version: "{{ ansistrano_latest_release_version.stdout }}"
+  when: ansistrano_current_release_version is not defined
 
 - stat:
     path: "{{ ansistrano_releases_path.stdout }}/{{ ansistrano_rollback_to_release }}"
