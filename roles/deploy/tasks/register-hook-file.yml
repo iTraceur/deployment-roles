@@ -1,7 +1,7 @@
 ---
 # setup
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/before_setup_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/before_setup.sh"
   register: st
 - name: ANSISTRANO | Set before setup tasks file
   set_fact:
@@ -9,7 +9,7 @@
   when: st.stat.exists is defined and st.stat.exists
 
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/after_setup_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/after_setup.sh"
   register: st
 - name: ANSISTRANO | Set after setup tasks file
   set_fact:
@@ -18,7 +18,7 @@
 
 # update code
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/before_update_code_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/before_update_code.sh"
   register: st
 - name: ANSISTRANO | Set before update code tasks file
   set_fact:
@@ -26,7 +26,7 @@
   when: st.stat.exists is defined and st.stat.exists
 
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/after_update_code_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/after_update_code.sh"
   register: st
 - name: ANSISTRANO | Set after update code tasks file
   set_fact:
@@ -35,7 +35,7 @@
 
 # symlink shared
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/before_symlink_shared_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/before_symlink_shared.sh"
   register: st
 - name: ANSISTRANO | Set before symlink shared tasks file
   set_fact:
@@ -43,7 +43,7 @@
   when: st.stat.exists is defined and st.stat.exists
 
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/after_symlink_shared_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/after_symlink_shared.sh"
   register: st
 - name: ANSISTRANO | Set after symlink shared tasks file
   set_fact:
@@ -52,7 +52,7 @@
 
 # symlink
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/before_symlink_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/before_symlink.sh"
   register: st
 - name: ANSISTRANO | Set before symlink tasks file
   set_fact:
@@ -60,7 +60,7 @@
   when: st.stat.exists is defined and st.stat.exists
 
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/after_symlink_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/after_symlink.sh"
   register: st
 - name: ANSISTRANO | Set after symlink tasks file
   set_fact:
@@ -69,7 +69,7 @@
 
 # symlink cleanup
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/before_cleanup_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/before_cleanup.sh"
   register: st
 - name: ANSISTRANO | Set before cleanup tasks file
   set_fact:
@@ -77,7 +77,7 @@
   when: st.stat.exists is defined and st.stat.exists
 
 - stat:
-    path: "{{ ansistrano_hook_path.stdout }}/after_cleanup_tasks.sh"
+    path: "{{ ansistrano_hook_path.stdout }}/after_cleanup.sh"
   register: st
 - name: ANSISTRANO | Set after cleanup tasks file
   set_fact:
