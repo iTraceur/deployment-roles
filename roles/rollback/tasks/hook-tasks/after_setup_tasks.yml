@@ -1,0 +1,3 @@
+---
+- name: ANSISTRANO | After Setup hook task
+  shell: "{{ ansistrano_hook_path.stdout }}/after_setup.sh"

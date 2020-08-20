@@ -1,0 +1,3 @@
+---
+- name: ANSISTRANO | Before Update Code hook task
+  shell: "{{ ansistrano_hook_path.stdout }}/before_update_code.sh"

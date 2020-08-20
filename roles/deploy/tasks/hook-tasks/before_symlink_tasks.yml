@@ -1,0 +1,3 @@
+---
+- name: ANSISTRANO | Before Symlink hook task
+  shell: "{{ ansistrano_hook_path.stdout }}/before_symlink.sh"

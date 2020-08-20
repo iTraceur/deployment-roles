@@ -1,0 +1,3 @@
+---
+- name: ANSISTRANO | After Cleanup hook task
+  shell: "{{ ansistrano_hook_path.stdout }}/after_cleanup.sh"

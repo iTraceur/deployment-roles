@@ -1,0 +1,3 @@
+---
+- name: ANSISTRANO | Before Cleanup hook task
+  shell: "{{ ansistrano_hook_path.stdout }}/before_cleanup.sh"
