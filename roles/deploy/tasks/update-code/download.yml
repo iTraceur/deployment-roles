@@ -6,3 +6,4 @@
     dest: "{{ ansistrano_release_path.stdout }}/{{ ansistrano_get_url | basename }}"
     force_basic_auth: "{{ ansistrano_download_force_basic_auth | default(omit) }}"
     headers: "{{ ansistrano_download_headers | default(omit) }}"
+    timeout: 600
